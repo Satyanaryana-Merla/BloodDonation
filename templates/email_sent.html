@@ -1,0 +1,108 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Email Sending</title>
+    <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/grid-gallery/css/grid-gallery.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+        <header class="continer-fluid ">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row col-det">
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <ul class="ulleft">
+                                <li>
+                                    <i class="far fa-envelope"></i>
+                                    melasatyanarayana123@gmail.com
+                                    </li>
+                                
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <ul class="ulright">
+                                <li>
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    Donate Now
+                                    <span>|</span></li>
+                                <li>
+                                    <i class="fas fa-user"></i><a href="/">Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu-jk" class="header-bottom">
+                <div class="container">
+                    <div class="row nav-row">
+                        <div class="col-md-3 logo">
+                            <img src="{% static 'images/logo.jpg' %}" alt="">
+                        </div>
+                        <div class="col-md-9 nav-col">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+
+                                <button
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#navbarNav"
+                                    aria-controls="navbarNav"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" >Give blood and save life! Donate blood, save life! Donate blood, give a smile to someone. 
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+    <h1>Send Email</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject"><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <input type="submit" value="Send">
+    </form>
+    <footer id="contact" class="container-fluid">
+		<div class="row content-ro">
+			</div>
+			<div class="footer-copy">
+				<div class="row">
+					<div class="col-lg-8 col-md-6">
+						<p>Copyright © <a href="#">Satyanarayana</a> | All right reserved.</p>
+					</div>
+					<div class="col-lg-4 col-md-6 socila-link">
+						<ul>
+							<li><a><i class="fab fa-github"></i></a></li>
+							<li><a><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a><i class="fab fa-pinterest-p"></i></a></li>
+							<li><a><i class="fab fa-twitter"></i></a></li>
+							<li><a><i class="fab fa-facebook-f"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
