@@ -146,7 +146,7 @@ def donordetails(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            return HttpResponse("Your data saved sucessfully")
+            return redirect(datasaved)
 
         else:
             for error in list(form.errors.values()):
@@ -274,3 +274,7 @@ def send_emails(request):
 #     else:
 #         donors = BloodDonorDetailsmodel.objects.all()
 #         return render(request, 'blood_donor_list.html', {'donors': donors}) 
+
+
+def datasaved(request):
+    return render(request, "datasaved.html")

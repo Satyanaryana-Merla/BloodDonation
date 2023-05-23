@@ -11,6 +11,7 @@ urlpatterns = [
     path("donor_details/", views.donor_list, name="donor_details"),
     path("donordetails/", views.donordetails, name="donordetails"),
     path('send_email/', views.send_emails, name='send_email'),
+    path('datasaved/', views.datasaved, name='datasaved'),
     path("activate/<uidb64>/<token>", views.activate, name="activate"),
     path("logout/", views.logoutpage, name="logout"),
     path(
