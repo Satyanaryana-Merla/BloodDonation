@@ -76,16 +76,12 @@
         </header>
 
 
-    <h1>Send Email</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="subject">Subject:</label><br>
-        <input type="text" id="subject" name="subject"><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message"></textarea><br>
-        <input type="submit" value="Send">
-    </form>
-    <footer id="contact" class="container-fluid">
+
+            <h1>Email Sent Successfully</h1>
+            <p>The emails have been sent to the selected donors.</p>
+
+        
+    <footer id="contact" class="container-fluid fixed-bottom" >
 		<div class="row content-ro">
 			</div>
 			<div class="footer-copy">

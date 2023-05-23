@@ -222,28 +222,55 @@ def donor_list(request):
     donors = BloodDonorDetailsmodel.objects.all()
     if request.method == 'POST':
         selected_donors = request.POST.getlist('selected_donors')
-        if selected_donors:
-            # Get the email addresses of selected donors
-            emails = [donor.email for donor in BloodDonorDetailsmodel.objects.filter(id__in=selected_donors)]
-            # Send email to selected donors
+        donors = BloodDonorDetailsmodel.objects.filter(id__in=selected_donors)
+        
+        for donor in donors:
             subject = 'Blood donation campaign'
-            message = 'Hello, we are organizing a blood donation campaign next week. We would like to invite you to participate.'
+            message = f'Hello {donor.name}, we are organizing a blood donation campaign next week. We would like to invite you to participate.'
             from_email = settings.EMAIL_HOST_USER
-            send_mail(subject, message, from_email, emails)
-            # Redirect to donor list page with success message
-            return render(request, 'donor_list.html', {'donors': donors, 'success_message': 'Emails sent successfully.'})
-    return render(request, 'blood_donor_list.html', {'donors': donors})
+            recipient_list = [donor.email]
+            send_mail(subject, message, from_email, recipient_list)
 
-
-@login_required
-def send_email(request):
-    if request.method == 'POST':
-        selected_donors = request.POST.getlist('selected_donors')
-        recipients = [donor.email for donor in BloodDonorDetailsmodel.objects.filter(pk__in=selected_donors)]
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-        send_mail(subject, message, 'your_email@example.com', recipients)
-        return render(request, 'email_sent.html')
+        return redirect(send_emails(request))
     else:
         donors = BloodDonorDetailsmodel.objects.all()
         return render(request, 'blood_donor_list.html', {'donors': donors})
+
+
+def send_emails(request):
+    if request.method == 'POST':
+        selected_donors = request.POST.getlist('selected_donors')
+        donors = BloodDonorDetailsmodel.objects.filter(id__in=selected_donors)
+
+        # Create a list to store the email recipients
+        recipient_list = []
+
+        for donor in donors:
+            subject = 'Blood donation campaign'
+            message = f'Hello {donor.fullname}, we are organizing a blood donation campaign next week. We would like to invite you to participate.'
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list.append(donor.email)
+
+        # Send email to all selected donors at once
+        send_mail(subject, message, from_email, recipient_list)
+
+        return render(request, 'email_sent.html')
+    else:
+        donors = BloodDonorDetailsmodel.objects.all()
+        return render(request, 'donor_list.html', {'donors': donors})
+
+
+
+# @login_required
+# @login_required
+# def send_email(request):
+#     if request.method == 'POST':
+#         selected_donors = request.POST.getlist('selected_donors')
+#         recipients = [donor.email for donor in BloodDonorDetailsmodel.objects.filter(pk__in=selected_donors)]
+#         subject = request.POST.get('subject')
+#         message = request.POST.get('message')
+#         send_mail(subject, message, 'your_email@example.com', recipients)
+#         return render(request, 'email_sent.html')
+#     else:
+#         donors = BloodDonorDetailsmodel.objects.all()
+#         return render(request, 'blood_donor_list.html', {'donors': donors}) 

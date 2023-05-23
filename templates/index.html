@@ -30,15 +30,20 @@
                         <div class="col-lg-6 col-md-12">
                             <ul class="ulright">
                                 <li>
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <a href="/donor/donordetails"> Donate Now </a>
-                                    <span>|</span></li>
-                                <li>
+                                    <i class="fas fa-user"></i><a href="/donor/signup"> SignUp</a>
                                     <i class="fas fa-user"></i><a href="/donor/login/">SignIn</a>
+                                    <span>|</span></li>
                                 </li>
                                 <li>
-                                    <i class="fas fa-user"></i><a href="/donor/signup/">SignUp</a>
+                                    <a href="/donor/donordetails"> Donate Now </a>
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    
+                                    
+                                    
+                                <li>
+                                    
                                 </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -73,9 +78,9 @@
                                             <a class="nav-link" href="#about">About Us</a>
                                         </li>
                                        
-                                        <li class="nav-item">
+                                        {% comment %} <li class="nav-item">
                                             <a class="nav-link" href="#gallery">Gallery</a>
-                                        </li>
+                                        </li> {% endcomment %}
                                          <li class="nav-item">
                                             <a class="nav-link" href="#process">Process</a>
                                         </li>
@@ -212,7 +217,7 @@
     
       <!-- ################# Gallery Start Here #######################--->
      
-    <div id="gallery" class="gallery container-fluid">
+    {% comment %} <div id="gallery" class="gallery container-fluid">
         <div class="container">
             <div class="row session-title">
                 <h2>Checkout Our Gallery</h2>
@@ -256,7 +261,7 @@
             </div>
         </div>
     </div>
-    
+     {% endcomment %}
     
     
      <!-- ################# Donation Process Start Here #######################--->

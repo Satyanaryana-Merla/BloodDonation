@@ -10,7 +10,7 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("donor_details/", views.donor_list, name="donor_details"),
     path("donordetails/", views.donordetails, name="donordetails"),
-    path('send_email/', views.send_email, name='send_email'),
+    path('send_email/', views.send_emails, name='send_email'),
     path("activate/<uidb64>/<token>", views.activate, name="activate"),
     path("logout/", views.logoutpage, name="logout"),
     path(
