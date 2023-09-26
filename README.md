@@ -37,6 +37,3 @@ By implementing this blood donation management system, hospitals can quickly loc
 
 
 Note: The project includes features such as user registration, email notifications, and a database to store donor information securely. It promotes effective communication and coordination between hospitals, companies, and donors to ensure a seamless blood donation process.
-
- 
-Project Source Code : https://drive.google.com/file/d/1c6iKRIZotf8V4ABzVTzkqXFAO9lMg0eK/view?usp=sharing,
